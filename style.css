@@ -1,0 +1,290 @@
+:root{
+  --bg:#fff8fd;
+  --card:#ffffff;
+  --text:#4a4560;
+  --primary:#ff8fc7;
+  --secondary:#8fd3ff;
+  --purple:#c9a7ff;
+  --border:#f2d9ea;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  color:var(--text);
+  background:linear-gradient(
+      135deg,
+      #ffe8f4 0%,
+      #eaf8ff 50%,
+      #f1e9ff 100%
+  );
+  min-height:100vh;
+}
+
+/* Navbar */
+nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:18px 30px;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #ffffff;
+}
+
+nav strong{
+  margin-right:auto;
+  font-size:1.2rem;
+  color:#ff6eb5;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:600;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#ff6eb5;
+}
+
+/* Hero */
+.hero{
+  position:relative;
+  text-align:center;
+  padding:100px 20px;
+}
+
+.profile-img{
+  width:190px;
+  height:190px;
+  object-fit:cover;
+  border-radius:50%;
+  border:6px solid white;
+  box-shadow:
+  0 0 25px rgba(255,143,199,.35),
+  0 0 45px rgba(143,211,255,.25);
+}
+
+.hero h1{
+  margin-top:25px;
+  font-size:3rem;
+  background:linear-gradient(
+      90deg,
+      #ff6eb5,
+      #8fd3ff,
+      #b084ff
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  margin-top:15px;
+  font-size:1.1rem;
+}
+
+/* Button */
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 32px;
+  border-radius:999px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  background:linear-gradient(
+      135deg,
+      #ff8fc7,
+      #8fd3ff
+  );
+  box-shadow:0 10px 25px rgba(255,143,199,.3);
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-4px) scale(1.05);
+}
+
+/* Layout */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:25px;
+}
+
+section{
+  margin:60px 0;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:25px;
+  color:#ff6eb5;
+}
+
+/* Cards */
+.card{
+  background:rgba(255,255,255,.95);
+  border:1px solid var(--border);
+  border-radius:25px;
+  padding:25px;
+  box-shadow:
+  0 12px 25px rgba(255,143,199,.12);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:
+  0 20px 35px rgba(255,143,199,.2);
+}
+
+/* Grid */
+.grid{
+  display:grid;
+  gap:20px;
+}
+
+/* Add larger vertical spacing for the Projects section */
+section#projects .grid {
+  row-gap: 30px;
+}
+
+.grid-2{
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
+
+.grid-3{
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+}
+
+/* Project Image */
+.project-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:18px;
+  margin-bottom:15px;
+}
+
+/* Skills */
+#skills .card{
+  text-align:center;
+  font-weight:bold;
+  background:linear-gradient(
+      135deg,
+      rgba(255,143,199,.15),
+      rgba(143,211,255,.15)
+  );
+}
+
+/* Contact */
+#contact .card{
+  text-align:center;
+}
+
+/* Animation */
+.card{
+  animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2rem;
+}
+
+.profile-img{
+    width:150px;
+    height:150px;
+}
+
+nav{
+    flex-wrap:wrap;
+}
+
+}
+
+/* ===== ก้อนเมฆตกแต่ง ===== */
+
+/* เมฆเล็กๆในส่วน Hero ซ่อนอยู่ในช่อง padding ด้านบน-ล่าง ไม่บังรูป/ข้อความ */
+.cloud-decor{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.cloud{
+  fill:#ffffff;
+  position:absolute;
+  filter:drop-shadow(0 6px 10px rgba(143,211,255,.35));
+}
+
+/* ดันรูป/หัวข้อ/ปุ่มให้อยู่หน้าเมฆเสมอ */
+.hero .profile-img,
+.hero h1,
+.hero p,
+.hero .btn{
+  position:relative;
+  z-index:1;
+}
+
+.cloud-1{ top:4%;    left:8%;   width:85px; opacity:.85; animation:cloud-float 7s ease-in-out infinite; }
+.cloud-2{ top:8%;    right:10%; width:60px; opacity:.7;  animation:cloud-float 9s ease-in-out infinite 1.5s; }
+.cloud-3{ bottom:6%; left:14%;  width:65px; opacity:.75; animation:cloud-float 8s ease-in-out infinite .8s; }
+
+@keyframes cloud-float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+}
+
+/* เมฆลอยจางๆมุมจอ เพิ่มความสวยงามให้ทั้งเว็บแบบเบาๆ (แสดงเฉพาะจอกว้าง) */
+.ambient-clouds{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+}
+
+.ambient-clouds .cloud{
+  filter:drop-shadow(0 4px 8px rgba(201,167,255,.3));
+}
+
+.ambient-1{ top:14%;    right:3%; width:70px; opacity:.3;  animation:cloud-float 11s ease-in-out infinite; }
+.ambient-2{ bottom:18%; left:3%;  width:55px; opacity:.25; animation:cloud-float 13s ease-in-out infinite 2s; }
+
+@media(max-width:1100px){
+  .ambient-clouds{ display:none; }
+}
+
+@media(prefers-reduced-motion: reduce){
+  .cloud{ animation:none !important; }
+}
